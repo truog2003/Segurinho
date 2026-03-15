@@ -1,48 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Ameaça</title>
 
-<style>
-body { margin:0; background:#fff; opacity:1; transition:opacity .2s ease-out; }
-body.fade-out { opacity:0; }
-img { width:100vw; height:auto; display:block; }
-</style>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Segurinho</title>
+
+<!-- Manifest PWA -->
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#2b66b1">
+
+<!-- iOS PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="apple-mobile-web-app-title" content="Segurinho">
+
+<!-- Apple Icons -->
+<link rel="apple-touch-icon" sizes="120x120" href="icon-120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icon-167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+
+<!-- Android / Browser icons -->
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+
+<!-- CSS -->
+<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
-<img src="pag1ed.png">
+<img src="pag1ed.png" onclick="navigate('pag2.html')">
 
 <script>
-let startX=0,endX=0;
 
-const NEXT="pag2.html";
-const PREV="index.html";
-
-document.addEventListener("touchstart",e=>{
-  startX=e.changedTouches[0].screenX;
-});
-
-document.addEventListener("touchend",e=>{
-  endX=e.changedTouches[0].screenX;
-  let d=endX-startX;
-
-  if(d<-80) navigate(NEXT);
-  if(d>80) navigate(PREV);
-});
+window.onload = () => {
+document.body.classList.add("loaded");
+}
 
 function navigate(page){
-  document.body.classList.add("fade-out");
-  setTimeout(()=>{
-    window.location.href=page;
-  },200);
+
+document.body.classList.add("fade-out");
+
+setTimeout(()=>{
+window.location.href = page;
+},350)
+
 }
+
+if ('serviceWorker' in navigator){
+
+navigator.serviceWorker.register('service-worker.js')
+.then(()=>{
+console.log("Service Worker registrado")
+})
+.catch(err=>{
+console.log("Erro SW:",err)
+})
+
+}
+
 </script>
 
 </body>
+
 </html>
 
 
