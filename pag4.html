@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Página 4</title>
@@ -11,7 +13,7 @@
 
 body{
 margin:0;
-background:#fff;
+background:#ffffff;
 opacity:0;
 transition:opacity .35s ease;
 }
@@ -35,19 +37,24 @@ display:block;
 
 <body>
 
-<img src="pag4ed.jpg">
+<img src="pag4ed.png">
 
 <script>
 
 window.onload=()=>document.body.classList.add("loaded");
 
-let startX=0,endX=0;
+let startX=0;
+
+let endX=0;
 
 const NEXT="pag5.html";
+
 const PREV="pag3.html";
 
 document.addEventListener("touchstart",e=>{
+
 startX=e.changedTouches[0].screenX;
+
 });
 
 document.addEventListener("touchend",e=>{
@@ -67,7 +74,9 @@ function navigate(page){
 document.body.classList.add("fade-out");
 
 setTimeout(()=>{
+
 window.location.href=page;
+
 },350)
 
 }
@@ -75,6 +84,7 @@ window.location.href=page;
 </script>
 
 </body>
+
 </html>
 
 
