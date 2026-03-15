@@ -2,58 +2,47 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-
-<!-- Viewport correto para iPhone -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-<title>Segurinho</title>
-
-<!-- PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffffff">
-
-<!-- iOS específico -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Segurinho">
-
-<!-- Ícones -->
-<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<title>Ameaça</title>
 
 <style>
-body {
-  margin: 0;
-  background: #ffffff;
-}
-
-img {
-  width: 100vw;
-  height: auto;
-  display: block;
-  cursor: pointer;
-}
+body { margin:0; background:#fff; opacity:1; transition:opacity .2s ease-out; }
+body.fade-out { opacity:0; }
+img { width:100vw; height:auto; display:block; }
 </style>
-
 </head>
 
 <body>
 
-<img src="pag1ed.png" onclick="window.location.href='pag2.html'">
+<img src="pag1ed.png">
 
-<!-- Service Worker -->
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-    .then(() => console.log("Service Worker registrado"))
-    .catch(err => console.log("Erro SW:", err));
+let startX=0,endX=0;
+
+const NEXT="index.html";
+const PREV="index.html";
+
+document.addEventListener("touchstart",e=>{
+  startX=e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend",e=>{
+  endX=e.changedTouches[0].screenX;
+  let d=endX-startX;
+
+  if(d<-80) navigate(NEXT);
+  if(d>80) navigate(PREV);
+});
+
+function navigate(page){
+  document.body.classList.add("fade-out");
+  setTimeout(()=>{
+    window.location.href=page;
+  },200);
 }
 </script>
 
 </body>
 </html>
-
-
 
 
