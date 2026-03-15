@@ -9,30 +9,7 @@
 
 <title>Página 2</title>
 
-<style>
-
-body{
-margin:0;
-background:#ffffff;
-opacity:0;
-transition:opacity .35s ease;
-}
-
-body.loaded{
-opacity:1;
-}
-
-body.fade-out{
-opacity:0;
-}
-
-img{
-width:100vw;
-display:block;
-cursor:pointer;
-}
-
-</style>
+<link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -49,10 +26,8 @@ function navigate(page){
 document.body.classList.add("fade-out");
 
 setTimeout(()=>{
-
 window.location.href=page;
-
-},350)
+},350);
 
 }
 
