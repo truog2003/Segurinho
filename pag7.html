@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Página 6</title>
+
+<title>Página 7</title>
 
 <style>
-body { margin:0; background:#fff; opacity:1; transition:opacity .2s ease-out; }
-body.fade-out { opacity:0; }
-img { width:100vw; height:auto; display:block; }
+
+body{
+margin:0;
+background:#fff;
+opacity:0;
+transition:opacity .35s ease;
+}
+
+body.loaded{
+opacity:1;
+}
+
+body.fade-out{
+opacity:0;
+}
+
+img{
+width:100vw;
+display:block;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<img src="pag6ed.jpg">
+<img src="pag7ed.jpg">
 
 <script>
+
+window.onload=()=>document.body.classList.add("loaded");
+
 let startX=0,endX=0;
 
 const NEXT="pag3.html";
-const PREV="pag5.html";
+const PREV="pag6.html";
 
 document.addEventListener("touchstart",e=>{
-  startX=e.changedTouches[0].screenX;
+startX=e.changedTouches[0].screenX;
 });
 
 document.addEventListener("touchend",e=>{
-  endX=e.changedTouches[0].screenX;
-  let d=endX-startX;
 
-  if(d<-80) navigate(NEXT);
-  if(d>80) navigate(PREV);
+endX=e.changedTouches[0].screenX;
+
+let d=endX-startX;
+
+if(d<-80)navigate(NEXT);
+
+if(d>80)navigate(PREV);
+
 });
 
 function navigate(page){
-  document.body.classList.add("fade-out");
-  setTimeout(()=>{
-    window.location.href=page;
-  },200);
+
+document.body.classList.add("fade-out");
+
+setTimeout(()=>{
+window.location.href=page;
+},350)
+
 }
+
 </script>
 
 </body>
