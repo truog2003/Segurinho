@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Página 2</title>
@@ -11,7 +13,7 @@
 
 body{
 margin:0;
-background:#fff;
+background:#ffffff;
 opacity:0;
 transition:opacity .35s ease;
 }
@@ -36,7 +38,7 @@ cursor:pointer;
 
 <body>
 
-<img src="pag2ed.jpg" onclick="navigate('pag3.html')">
+<img src="pag2ed.png" onclick="navigate('pag3.html')">
 
 <script>
 
@@ -47,7 +49,9 @@ function navigate(page){
 document.body.classList.add("fade-out");
 
 setTimeout(()=>{
+
 window.location.href=page;
+
 },350)
 
 }
@@ -55,6 +59,7 @@ window.location.href=page;
 </script>
 
 </body>
+
 </html>
 
 
