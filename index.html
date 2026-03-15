@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Segurinho</title>
 
 <link rel="manifest" href="manifest.json">
+
 <meta name="theme-color" content="#ffffff">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
+
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <meta name="apple-mobile-web-app-title" content="Segurinho">
 
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
@@ -20,7 +25,7 @@
 
 body{
 margin:0;
-background:#fff;
+background:#ffffff;
 opacity:0;
 transition:opacity .35s ease;
 }
@@ -45,7 +50,7 @@ cursor:pointer;
 
 <body>
 
-<img src="pag1ed.jpg" onclick="navigate('pag2.html')">
+<img src="pag1ed.png" onclick="navigate('pag2.html')">
 
 <script>
 
@@ -56,18 +61,23 @@ function navigate(page){
 document.body.classList.add("fade-out");
 
 setTimeout(()=>{
+
 window.location.href=page;
+
 },350)
 
 }
 
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator){
+
 navigator.serviceWorker.register('service-worker.js');
+
 }
 
 </script>
 
 </body>
+
 </html>
 
 
