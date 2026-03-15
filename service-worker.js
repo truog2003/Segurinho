@@ -1,20 +1,15 @@
-const CACHE_NAME = "cnh-app-v1";
+const CACHE_NAME = "segurinho-v1";
 
 const urlsToCache = [
-  "index.html",
-  "pag2.html",
-  "pag3.html",
-  "pag4.html",
-  "pag5.html",
-  "pag6.html",
-  "pag1ed.jpg",
-  "pag2ed.jpg",
-  "pag3ed.jpg",
-  "pag4ed.jpg",
-  "pag5ed.jpg",
-  "pag6ed.jpg",
-  "icon-192.png",
-  "icon-512.png"
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "/icons/icon-120.png",
+  "/icons/icon-152.png",
+  "/icons/icon-167.png",
+  "/icons/icon-180.png",
+  "/icons/icon-192.png",
+  "/icons/icon-512.png"
 ];
 
 self.addEventListener("install", event => {
@@ -27,6 +22,8 @@ self.addEventListener("install", event => {
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request)
-      .then(response => response || fetch(event.request))
+      .then(response => {
+        return response || fetch(event.request);
+      })
   );
 });
